@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 
-class produks extends StatelessWidget {
-  const produks({Key key}) : super(key: key);
+class Produks extends StatelessWidget {
+  final List<String> produks;
+  Produks( this.produks){
+    print("Produk Konstruksi");
+  }
 
   @override
   Widget build(BuildContext context) {
+    print("Produk Build");
     return Column(
-      children: _produks
+      children: produks
           .map((element) => Card(
                 child: Column(
                   children: <Widget>[
                     Image.asset('assets/food.jpg'),
-                    Text('Makanan')
+                    Text(element)
                   ],
                 ),
               ))
