@@ -6,7 +6,7 @@ class ProdukManager extends StatefulWidget {
   final String produkAwal;
 
   // membuat Optional nilai awal di passing data dart
-  ProdukManager({this.produkAwal = 'Konsturksi'}) {
+  ProdukManager({this.produkAwal}) {
     print("ProdukManager konstruksi");
   }
   @override
@@ -21,7 +21,10 @@ class _ProdukManagerState extends State<ProdukManager> {
   @override
   void initState() {
     print("ProdukManager initState");
-    _produks.add(widget.produkAwal);
+    if(_produks.length>0){
+       _produks.add(widget.produkAwal);
+    }
+   
     super.initState();
   }
 
