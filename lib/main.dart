@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Main sdasd"),
+          title: Text("Menu Awal"),
         ),
-        body: ProdukManager('produk awal')
+        body: ProdukManager()
       ),
     );
   }
