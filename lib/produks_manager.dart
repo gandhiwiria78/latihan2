@@ -3,7 +3,7 @@ import './produks.dart';
 import './produks_controls.dart';
 
 class ProdukManager extends StatefulWidget {
-  final String produkAwal;
+  final Map produkAwal;
 
   // membuat Optional nilai awal di passing data dart
   ProdukManager({this.produkAwal}) {
@@ -17,11 +17,11 @@ class ProdukManager extends StatefulWidget {
 }
 
 class _ProdukManagerState extends State<ProdukManager> {
-  List<String> _produks = [];
+  List<Map> _produks = [];
   @override
   void initState() {
     print("ProdukManager initState");
-    if(_produks.length>0){
+    if(widget.produkAwal !=null){
        _produks.add(widget.produkAwal);
     }
    
@@ -34,7 +34,7 @@ class _ProdukManagerState extends State<ProdukManager> {
     super.didUpdateWidget(oldWidget);
   }
 
-  void _addProduk(String value) {
+  void _addProduk(Map value) {
     setState(() {
       _produks.add(value);
     });

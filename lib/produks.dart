@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import './pages/produkDetail.dart';
+
 class Produks extends StatelessWidget {
-  final List<String> produks;
+  final List<Map> produks;
   // const adalah memberitahu bahwa nilai tidak bisa di tambah set hanya sekali
   Produks([this.produks = const []]) {
     print("Produk Konstruksi");
@@ -11,8 +13,19 @@ class Produks extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          Image.asset('assets/food.jpg'),
-          Text(produks[index])
+          Image.asset(produks[index]['imagePath']),
+          Text(produks[index]['title']),
+          ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
+            FlatButton(
+              child: Text('Detail Food'),
+              onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => ProdukDetail(produks[index]['title'],produks[index]['imagePath']),
+                    ),
+              )
+            )
+          ])
         ],
       ),
     );
@@ -21,15 +34,20 @@ class Produks extends StatelessWidget {
   // menggunakan Listview Builder adalah membuat list sesuai dengan kebutuhan, function ini me
   @override
   Widget build(BuildContext context) {
-    print("Produk Build");
-    return produks.length > 0
-        ? ListView.builder(
-            itemBuilder: _itemBuilder,
-            itemCount: produks.length,
-          )
-        : Container(
-            alignment: Alignment.center,
-            child: Text('Kosong, Tambahkan Sesuatu'),
-          );
+    return produkCard();
+  }
+
+  Widget produkCard() {
+    if (produks.length > 0) {
+      return ListView.builder(
+        itemBuilder: _itemBuilder,
+        itemCount: produks.length,
+      );
+    } else {
+      return Container(
+        alignment: Alignment.center,
+        child: Text('Kosong, Tambahkan Sesuatu Deh'),
+      );
+    }
   }
 }

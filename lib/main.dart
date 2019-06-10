@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './produks_manager.dart';
+import './pages/home.dart';
 
 void main() => {runApp(MyApp())};
 
@@ -11,12 +11,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.teal,
         accentColor: Colors.tealAccent
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Menu Awal"),
-        ),
-        body: ProdukManager()
-      ),
+      home: Home()
     );
   }
 }

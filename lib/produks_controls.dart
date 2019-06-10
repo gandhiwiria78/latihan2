@@ -12,10 +12,11 @@ class ProdukControl extends StatelessWidget {
   Widget build(BuildContext context) {
     return RaisedButton(
       color: Theme.of(context).primaryColor,
+
       onPressed: () {
-        addProduk('mUsen');
+        addProduk({'title':'Makanan Manis','imagePath':'assets/food.jpg'});
       },
-      child: Text("Tambah Gambar"),
+      child: Text("Tambah Gambar",style: TextStyle(color: Colors.white)),
     );
   }
 }
