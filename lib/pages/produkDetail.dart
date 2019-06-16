@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 class ProdukDetail extends StatelessWidget {
   final String title, imagePath;
@@ -6,7 +7,12 @@ class ProdukDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(onWillPop:()
+    {
+      print('backto Main Menu');
+      Navigator.pop(context,false);
+      return Future.value(false);
+    },child: Scaffold(
         appBar: AppBar(
           title: Text(title),
         ),
@@ -18,10 +24,10 @@ class ProdukDetail extends StatelessWidget {
             Container(
                 padding: EdgeInsets.all(10),
                 child: RaisedButton(
-                  child: Text("Kembali"),
-                  onPressed: () => Navigator.pop(context),
+                  child: Text("DELETE"),
+                  onPressed: () => Navigator.pop(context, true),
                 ))
           ],
-        ));
+        )));
   }
 }

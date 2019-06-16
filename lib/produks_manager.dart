@@ -40,12 +40,17 @@ class _ProdukManagerState extends State<ProdukManager> {
     });
   }
 
+void _deleteProduk(int index){
+  setState(() {
+    _produks.removeAt(index);
+  });
+}
   @override
   Widget build(BuildContext context) {
     print("ProdukManager build");
     return Column(children: [
       Container(margin: EdgeInsets.all(10), child: ProdukControl(_addProduk)),
-      Expanded(child:Produks(_produks))
+      Expanded(child:Produks(_produks, deleteProduk: _deleteProduk,))
     ]);
   }
 }

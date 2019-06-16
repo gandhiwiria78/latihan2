@@ -4,8 +4,10 @@ import './pages/produkDetail.dart';
 
 class Produks extends StatelessWidget {
   final List<Map> produks;
+  final Function deleteProduk;
+  
   // const adalah memberitahu bahwa nilai tidak bisa di tambah set hanya sekali
-  Produks([this.produks = const []]) {
+  Produks(this.produks,{this.deleteProduk}) {
     print("Produk Konstruksi");
   }
 
@@ -18,12 +20,16 @@ class Produks extends StatelessWidget {
           ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
             FlatButton(
               child: Text('Detail Food'),
-              onPressed: () => Navigator.push(
+              onPressed: () => Navigator.push<bool>(
                     context,
                     MaterialPageRoute(
                       builder: (BuildContext context) => ProdukDetail(produks[index]['title'],produks[index]['imagePath']),
                     ),
-              )
+              ).then((bool value){
+                if (value){
+                  deleteProduk(index);
+                }
+              })
             )
           ])
         ],

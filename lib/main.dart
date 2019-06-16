@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import './pages/home.dart';
 
+import './pages/auth.dart';
+import './pages/ProdukPage.dart';
+import './pages/produk_Admin.dart';
 void main() => {runApp(MyApp())};
 
 class MyApp extends StatelessWidget {
@@ -11,7 +13,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.teal,
         accentColor: Colors.tealAccent
       ),
-      home: Home()
+      home: AuthPage(),
+      routes: {
+        '/': (BuildContext context)=> ProdukPage(),
+        '/admin': (BuildContext context)=> ProdukAdminPage(),
+
+      },
     );
   }
 }
