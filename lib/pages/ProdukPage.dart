@@ -3,7 +3,12 @@ import '../produks_manager.dart';
 
 
 class ProdukPage extends StatelessWidget {
-  const ProdukPage({Key key}) : super(key: key);
+
+  final List<Map<String,String>> _produks;
+  final Function _addProduk;
+  final Function _deleteProduk;
+
+  ProdukPage(this._produks,this._addProduk,this._deleteProduk);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +29,7 @@ class ProdukPage extends StatelessWidget {
           appBar: AppBar(
             title: Text("Produk"),
           ),
-          body: ProdukManager()),
+          body: ProdukManager(_produks,_addProduk,_deleteProduk)),
     );
   }
 }

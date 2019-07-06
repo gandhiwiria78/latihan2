@@ -2,49 +2,14 @@ import 'package:flutter/material.dart';
 import './produks.dart';
 import './produks_controls.dart';
 
-class ProdukManager extends StatefulWidget {
-  final Map produkAwal;
+class ProdukManager extends StatelessWidget {
+  
+  List<Map<String,String>> _produks;
+  Function _addProduk;
+  Function _deleteProduk;
 
-  // membuat Optional nilai awal di passing data dart
-  ProdukManager({this.produkAwal}) {
-    print("ProdukManager konstruksi");
-  }
-  @override
-  State<StatefulWidget> createState() {
-    print("ProdukManager createState");
-    return _ProdukManagerState();
-  }
-}
-
-class _ProdukManagerState extends State<ProdukManager> {
-  List<Map> _produks = [];
-  @override
-  void initState() {
-    print("ProdukManager initState");
-    if(widget.produkAwal !=null){
-       _produks.add(widget.produkAwal);
-    }
-   
-    super.initState();
-  }
-
-  @override
-  void didUpdateWidget(ProdukManager oldWidget) {
-    print("ProdukManager didUpdateWidget");
-    super.didUpdateWidget(oldWidget);
-  }
-
-  void _addProduk(Map value) {
-    setState(() {
-      _produks.add(value);
-    });
-  }
-
-void _deleteProduk(int index){
-  setState(() {
-    _produks.removeAt(index);
-  });
-}
+  ProdukManager(this._produks,this._addProduk,this._deleteProduk);
+ 
   @override
   Widget build(BuildContext context) {
     print("ProdukManager build");

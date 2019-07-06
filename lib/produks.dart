@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './pages/produkDetail.dart';
+
 
 class Produks extends StatelessWidget {
   final List<Map> produks;
@@ -20,12 +20,9 @@ class Produks extends StatelessWidget {
           ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
             FlatButton(
               child: Text('Detail Food'),
-              onPressed: () => Navigator.push<bool>(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => ProdukDetail(produks[index]['title'],produks[index]['imagePath']),
-                    ),
-              ).then((bool value){
+              onPressed: () => Navigator
+              .pushNamed<bool>(context,'/produks/'+index.toString())
+              .then((bool value){
                 if (value){
                   deleteProduk(index);
                 }

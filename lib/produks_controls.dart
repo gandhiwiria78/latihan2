@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ProdukControl extends StatelessWidget {
-  
+
   // final adalah memberitahu bahwa variable 
   // tersebut tidak bisa diset ulang hanya bisa ditambah
-
+  
   final Function addProduk;
   ProdukControl(this.addProduk);
   @override
