@@ -4,7 +4,31 @@ import 'dart:async';
 class ProdukDetail extends StatelessWidget {
   final String title, imagePath;
   ProdukDetail(this.title, this.imagePath);
-
+  
+  void _showAlertDialogHapus(BuildContext context){
+      showDialog(context: context, builder: (BuildContext context){
+        return AlertDialog(
+          title: Text("Hapus Item"),
+          content: Text("Hapus data ini ? "),
+          actions: <Widget>[
+             RaisedButton(
+              child: Text("Ya"),
+              onPressed: (){
+                Navigator.pop(context);
+                Navigator.pop(context,true);
+              
+              },
+            ),
+            RaisedButton(
+              child: Text("Tidak "),
+              onPressed: (){
+                Navigator.pop(context);
+              },
+            ),
+            
+        ],);
+      });
+  }
   @override
   Widget build(BuildContext context) {
     return WillPopScope(onWillPop:()
@@ -25,7 +49,7 @@ class ProdukDetail extends StatelessWidget {
                 padding: EdgeInsets.all(10),
                 child: RaisedButton(
                   child: Text("DELETE"),
-                  onPressed: () => Navigator.pop(context, true),
+                  onPressed: () => _showAlertDialogHapus(context),
                 ))
           ],
         )));

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import './pages/auth.dart';
 import './pages/ProdukPage.dart';
 import './pages/produk_Admin.dart';
-import './latihan/latihan.dart';
-import './pages/produks.dart';
+//import './latihan/latihan.dart';
+//import './pages/produks.dart';
 import './pages/produkDetail.dart';
 
 
@@ -12,10 +12,7 @@ void main() => {runApp(MyApp())};
 
 class MyApp extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return _MyAppState();
-  }
+  State<StatefulWidget> createState() => _MyAppState();
 
 }
 class _MyAppState extends State<MyApp>{
@@ -51,13 +48,18 @@ void _deleteProduk(int index){
         if(pathElement[0]!=""){
           return null;
         }
-        if(pathElement[1]=="Produk"){
+        if(pathElement[1] =="produks"){
           final int index = int.parse(pathElement[2]); 
           return MaterialPageRoute<bool>(
             builder: (BuildContext context) => ProdukDetail(_produks[index]['title'],_produks[index]['imagePath']),
           );
         }
         return null;
+      },
+      onUnknownRoute:(RouteSettings settings) {
+        return MaterialPageRoute<bool>(
+            builder: (BuildContext context) =>(ProdukPage(_produks,_addProduk,_deleteProduk)),
+          );
       },
     );
   }

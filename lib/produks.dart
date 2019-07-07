@@ -20,6 +20,8 @@ class Produks extends StatelessWidget {
           ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
             FlatButton(
               child: Text('Detail Food'),
+              textColor: ThemeData().accentColor,
+              padding: const EdgeInsets.all(0.0),
               onPressed: () => Navigator
               .pushNamed<bool>(context,'/produks/'+index.toString())
               .then((bool value){

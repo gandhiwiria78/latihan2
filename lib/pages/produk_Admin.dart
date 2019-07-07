@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import './produk_create.dart';
+import './produk_list.dart';
+
 class ProdukAdminPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -28,14 +31,22 @@ class ProdukAdminPage extends StatelessWidget {
               Tab(
                 icon: Icon(Icons.create),
                 text: "Buat Produk",
+               // child: ProdukCreatePage(),
+               
               ),
               Tab(
                 icon: Icon(Icons.list),
                 text: "List Produk",
+                //child: ProdukListPage(),
               ),
             ],
           ),
+          
         ),
+        body: TabBarView(children: <Widget>[
+          ProdukCreatePage(),
+          ProdukListPage()
+        ],),
       ),
       length: 2,
     );

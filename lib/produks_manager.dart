@@ -4,9 +4,9 @@ import './produks_controls.dart';
 
 class ProdukManager extends StatelessWidget {
   
-  List<Map<String,String>> _produks;
-  Function _addProduk;
-  Function _deleteProduk;
+ final List<Map<String,String>> _produks;
+ final  Function _addProduk;
+ final Function _deleteProduk;
 
   ProdukManager(this._produks,this._addProduk,this._deleteProduk);
  
