@@ -36,6 +36,7 @@ void _deleteProduk(int index){
       theme: ThemeData(
         primarySwatch: Colors.teal,
         accentColor: Colors.teal,
+        
       ),
       home: AuthPage(),
       routes: {

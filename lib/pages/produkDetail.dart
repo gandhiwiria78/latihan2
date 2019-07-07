@@ -35,7 +35,6 @@ class ProdukDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(onWillPop:()
     {
-      print('backto Main Menu');
       Navigator.pop(context,false);
       return Future.value(false);
     },child: Scaffold(
