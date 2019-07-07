@@ -20,6 +20,7 @@ class ProdukPage extends StatelessWidget {
               title: Text('Menu'),
             ),
             ListTile(
+              leading: Icon(Icons.edit),
               title: Text('Manager Produk'),
               onTap: (){
                   Navigator.pushReplacementNamed(context, '/admin');

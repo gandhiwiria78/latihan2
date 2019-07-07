@@ -52,7 +52,7 @@ void _deleteProduk(int index){
         if(pathElement[1] =="produks"){
           final int index = int.parse(pathElement[2]); 
           return MaterialPageRoute<bool>(
-            builder: (BuildContext context) => ProdukDetail(_produks[index]['judul'],_produks[index]['image']),
+            builder: (BuildContext context) => ProdukDetail(_produks[index]['judul'],_produks[index]['image'],_produks[index]['harga'],_produks[index]['deskripsi']),
           );
         }
         return null;

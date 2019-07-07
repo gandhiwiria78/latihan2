@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class ProdukCreatePage extends StatefulWidget {
@@ -45,9 +46,13 @@ class _ProdukCreatePageState extends State<ProdukCreatePage>{
             });
           },),
           SizedBox(height: 19,),
-          RaisedButton(
-            child: Text('Simpan'),
-            color: Theme.of(context).accentColor,
+          MaterialButton(
+                height: 60.0,
+                minWidth: window.physicalSize.width,
+                color: Theme.of(context).primaryColor,
+                textColor: Colors.white,
+                
+                child: new Text("Simpan Produk",style: TextStyle(fontSize: 16),),
             onPressed: (){
                final Map<String,dynamic> produks = {
                  "judul": _namaProduk,

@@ -12,10 +12,11 @@ class Produks extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset(produks[index]['image']),
-          Text(produks[index]['judul']),
+          SizedBox(height: 10,),
+          Text(produks[index]['judul'],style: TextStyle(fontSize: 20,fontWeight: FontWeight.w800),),
           ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
             FlatButton(
-              child: Text('Detail Food'),
+              child: Text('Detail'),
               textColor: ThemeData().accentColor,
               padding: const EdgeInsets.all(0.0),
               onPressed: () => Navigator

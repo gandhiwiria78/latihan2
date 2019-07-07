@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 class ProdukDetail extends StatelessWidget {
-  final String title, imagePath;
-  ProdukDetail(this.title, this.imagePath);
+  final String title, imagePath, deskripsi;
+  final double harga;
+  ProdukDetail(this.title, this.imagePath,this.harga, this.deskripsi);
   
   void _showAlertDialogHapus(BuildContext context){
       showDialog(context: context, builder: (BuildContext context){
@@ -45,7 +46,9 @@ class ProdukDetail extends StatelessWidget {
           children: <Widget>[
             Image.asset(imagePath),
             Container(
-                padding: EdgeInsets.all(10), child: Text("Detail "+ title)),
+                padding: EdgeInsets.all(10), child: Text( title,style: TextStyle(fontSize: 20,fontWeight: FontWeight.w800))),
+            Container(
+                padding: EdgeInsets.all(10), child: Text("Detail: "+ deskripsi)),
             Container(
                 padding: EdgeInsets.all(10),
                 child: RaisedButton(

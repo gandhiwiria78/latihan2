@@ -33,9 +33,11 @@ class _AuthPageState extends State<AuthPage> {
               ),
               TextField(
                 decoration: InputDecoration(
-                    labelText: "UserName",
+                    labelText: "Email",
                     hintText: "isikan Email",
-                    icon: Icon(Icons.email, color: Colors.white),
+                    filled: true,
+                    fillColor: Colors.white24,
+                    icon: Icon(Icons.email, color: Colors.white ),
                     labelStyle: new TextStyle(
                       color: Colors.white,
                     ),
@@ -51,9 +53,10 @@ class _AuthPageState extends State<AuthPage> {
               ),
               TextField(
                 decoration: InputDecoration(
-                    fillColor: Colors.white,
                     labelText: "Password",
                     hintText: "isikan Password",
+                    filled: true ,
+                    fillColor: Colors.white24,
                     icon: Icon(Icons.account_box, color: Colors.white),
                     labelStyle: new TextStyle(
                       color: Colors.white,
@@ -86,11 +89,12 @@ class _AuthPageState extends State<AuthPage> {
               ),
               Text(_username),
               MaterialButton(
-                height: 40.0,
+                height: 60.0,
                 minWidth: window.physicalSize.width,
                 color: Theme.of(context).primaryColor,
                 textColor: Colors.white,
-                child: new Text("Login Sekarang"),
+                
+                child: new Text("Login Sekarang",style: TextStyle(fontSize: 16),),
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/ProduksPage');
                 },
