@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
 
-
-
 class Produks extends StatelessWidget {
-  final List<Map> produks;
-  final Function deleteProduk;
+  final List<Map<String,dynamic>> produks;
+  final Function _deleteProduk;
   
   // const adalah memberitahu bahwa nilai tidak bisa di tambah set hanya sekali
-  Produks(this.produks,{this.deleteProduk}) {
-    print("Produk Konstruksi");
-  }
+  Produks(this.produks,this._deleteProduk);
 
   Widget _itemBuilder(BuildContext context, int index) {
     return Card(
       child: Column(
         children: <Widget>[
-          Image.asset(produks[index]['imagePath']),
-          Text(produks[index]['title']),
+          Image.asset(produks[index]['image']),
+          Text(produks[index]['judul']),
           ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
             FlatButton(
               child: Text('Detail Food'),
@@ -26,7 +22,7 @@ class Produks extends StatelessWidget {
               .pushNamed<bool>(context,'/produks/'+index.toString())
               .then((bool value){
                 if (value){
-                  deleteProduk(index);
+                  _deleteProduk(index);
                 }
               })
             )

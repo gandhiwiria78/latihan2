@@ -12,7 +12,8 @@ class ProdukDetail extends StatelessWidget {
           content: Text("Hapus data ini ? "),
           actions: <Widget>[
              RaisedButton(
-              child: Text("Ya"),
+               color: Colors.white,
+              child: Text("Ya, Hapus"),
               onPressed: (){
                 Navigator.pop(context);
                 Navigator.pop(context,true);
@@ -20,7 +21,8 @@ class ProdukDetail extends StatelessWidget {
               },
             ),
             RaisedButton(
-              child: Text("Tidak "),
+              color: Colors.white,
+              child: Text("Tidak"),
               onPressed: (){
                 Navigator.pop(context);
               },

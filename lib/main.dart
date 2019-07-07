@@ -16,9 +16,10 @@ class MyApp extends StatefulWidget {
 
 }
 class _MyAppState extends State<MyApp>{
-  List<Map<String,String>> _produks =[];
 
-   void _addProduk(Map value) {
+  List<Map<String,dynamic>> _produks =[];
+
+   void _addProduk(Map<String,dynamic> value) {
     setState(() {
       _produks.add(value);
     });
@@ -34,13 +35,12 @@ void _deleteProduk(int index){
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.teal,
-        accentColor: Colors.tealAccent
+        accentColor: Colors.teal,
       ),
       home: AuthPage(),
       routes: {
-        '/ProduksPage': (BuildContext context)=> ProdukPage(_produks,_addProduk,_deleteProduk),
-        '/admin': (BuildContext context)=> ProdukAdminPage(),
-        
+        '/ProduksPage': (BuildContext context)=> ProdukPage(_produks,_deleteProduk),
+        '/admin': (BuildContext context)=> ProdukAdminPage(_addProduk,_deleteProduk),
       },
       onGenerateRoute: (RouteSettings setting){
         final List<String> pathElement = setting.name.split('/');
@@ -51,14 +51,15 @@ void _deleteProduk(int index){
         if(pathElement[1] =="produks"){
           final int index = int.parse(pathElement[2]); 
           return MaterialPageRoute<bool>(
-            builder: (BuildContext context) => ProdukDetail(_produks[index]['title'],_produks[index]['imagePath']),
+            builder: (BuildContext context) => ProdukDetail(_produks[index]['judul'],_produks[index]['image']),
           );
         }
         return null;
       },
+
       onUnknownRoute:(RouteSettings settings) {
         return MaterialPageRoute<bool>(
-            builder: (BuildContext context) =>(ProdukPage(_produks,_addProduk,_deleteProduk)),
+            builder: (BuildContext context) =>(ProdukPage(_produks,_deleteProduk)),
           );
       },
     );
