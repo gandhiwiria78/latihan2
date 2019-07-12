@@ -58,7 +58,7 @@ class _ProdukCreatePageState extends State<ProdukCreatePage>{
                  "judul": _namaProduk,
                  "deskripsi": _deskripsiProduk,
                  "harga":_hargaProduk,
-                 "image": "assets/food.jpg"
+                 "image": "assets/bkvu.jpg"
                };
                widget._addProduk( produks);
                Navigator.pushReplacementNamed(context, '/ProduksPage');

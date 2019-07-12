@@ -11,6 +11,7 @@ class AuthPage extends StatefulWidget {
 class _AuthPageState extends State<AuthPage> {
   String _username = "";
   String _password = "";
+  
   bool _accept = false;
   @override
   Widget build(BuildContext context) {
@@ -89,7 +90,6 @@ class _AuthPageState extends State<AuthPage> {
               ),
               Text(_username),
               MaterialButton(
-                height: 60.0,
                 minWidth: window.physicalSize.width,
                 color: Theme.of(context).primaryColor,
                 textColor: Colors.white,
